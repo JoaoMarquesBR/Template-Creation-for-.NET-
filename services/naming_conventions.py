@@ -17,10 +17,10 @@ naming_conventions = {
         'TEMPLATE_ENTITY_SERVICE_INTERFACE': "IEndUserService",
         'TEMPLATE_ENTITY_REPOSITORY_INTERFACE': "IEndUserRepository"
     },
-    'Domain': {
-        'TEMPLATE_ENTITY_CLASS': "EndUser"
-    },
     'INFRASTRUCTURE': {
         'TEMPLATE_REPOSITORY_INTERFACE_IMPLEMENTATION': "EndUserRepository"
-    }
+    },
+    'Domain': {
+        'TEMPLATE_ENTITY_CLASS': "EndUser",
+    },
 }
