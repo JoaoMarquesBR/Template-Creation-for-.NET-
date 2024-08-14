@@ -4,7 +4,6 @@ import shutil
 current_working_directory = "C:\\Users\\MrPro\\source\\VS_RESPOS\\python\\Create Templates Dotnet\\TEMPLATE_MANIPULATION_TEST"
 save_project_directory = "C:\\Users\\MrPro\\source\\VS_RESPOS\\python\\Create Templates Dotnet\\NEW_TEMPLATE3"
 
-
 # create copy of the project to save in another location 
 os.makedirs(save_project_directory, exist_ok=True)
 if os.path.exists(save_project_directory):
@@ -14,20 +13,6 @@ if os.path.exists(save_project_directory):
 new_path = shutil.copytree(current_working_directory,save_project_directory)
 print("creating directory")
 print(new_path)
-
-# from naming_conventions import (
-#     TEMPLATE_CONTROLLER,
-#     TEMPLATE_ENTITY_SERVICE_INTERFACE_DECLARATION_CONSTRUCTOR,
-#     TEMPLATE_ENTITY_SERVICE_INTERFACE_IMPLEMENTATION,
-#     TEMPLATE_ENTITY_SERVICE_INTERFACE_DECLARATION,
-#     TEMPLATE_ENTITY_SERVICE_INTERFACE,
-#     TEMPLATE_ENTITY_REPOSITORY_INTERFACE,
-#     TEMPLATE_REGISTRATION_REQUEST,
-#     TEMPLATE_REPOSITORY_INTERFACE_CONSTRUCTOR,
-#     TEMPLATE_REPOSITORY_INTERFACE_CLASS,
-#     TEMPLATE_ENTITY_CLASS,
-#     TEMPLATE_REPOSITORY_INTERFACE_IMPLEMENTATION
-# )
 
 def update_keys_of_file(file_path):
     f = open(file_path, 'r')
@@ -41,8 +26,6 @@ def update_keys_of_file(file_path):
             # print(f"Key = {key}   :   Valor = {value}")
             file_txt = file_txt.replace(key, value)
     return file_txt
-
-
 
 def write_in_file(file_path,text):
     file1 = open(file_path, 'w')
@@ -62,7 +45,3 @@ for root, dirs, files in os.walk(save_project_directory):
                 res.append(file_path)
                 new_text = update_keys_of_file(file_path)
                 write_in_file(file_path,new_text)
-                
-# print(res)
-
-
