@@ -1,6 +1,7 @@
 import os
 import shutil
 from werkzeug.datastructures import file_storage
+from file_class_data import FileClassData 
 
 dic_files = {}
 local_directory = os.getcwd()
@@ -48,20 +49,22 @@ def write_in_file(file_path,text):
         
 def add_new_service(service_name):
     print("addservice()")
-    # dic_files[]
+    # new_service_file = FileClassData(name= service_name,path="dads")
+
     # previous_path = file_path
     # new_path = os.path.join(os.path.dirname(file_path), new_file_name)
     # os.rename(previous_path, new_path)
     # file_path = os.path.join(os.path.dirname(file_path), new_file_name)
     
         
-def add_file_and_text_to_dictionary(file_path,file_txt):
-    dic_files[file_path] = "ds"
+def add_file_and_text_to_dictionary(file_path,file_name,file_txt):
+    file_data = FileClassData(name=file_name,path=file_path)
+    dic_files[file_name] = file_data
     
-def file_to_string(file_path):
+def file_to_string(cs_file_name,file_path):
     f = open(file_path, 'r')
     file_txt = f.read()
-    add_file_and_text_to_dictionary(file_path, file_txt)
+    add_file_and_text_to_dictionary(file_path,cs_file_name, file_txt)
     
     
 res = []
@@ -76,7 +79,7 @@ for root, dirs, files in os.walk(save_project_directory):
                 res.append(file_path)
                 new_text = update_keys_of_file(file_path)
                 if(cs_file_name.__contains__("TEMPLATE")):
-                    print(file_to_string(file_path))
+                    file_to_string(cs_file_name,file_path)
                     #removing the extension 
                     # new_file_name = get_value_of_key(cs_file_name)
                     # previous_path = file_path
@@ -88,8 +91,9 @@ for root, dirs, files in os.walk(save_project_directory):
                 
                 
 for key,value in dic_files.items():
-    print(key," - ")
+    print(f"Name: {value.name}\nPath: {value.path}\n")
     
+
     
 add_new_service("hotelRoom")
     
