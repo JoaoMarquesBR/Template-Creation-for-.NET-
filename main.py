@@ -4,24 +4,17 @@ from werkzeug.datastructures import file_storage
 
 dic_files = {}
 local_directory = os.getcwd()
-# current_working_directory = "C:\\Users\\MrPro\\source\\VS_RESPOS\\python\\Create Templates Dotnet\\TEMPLATE_MANIPULATION_TEST"
-save_project_directory = "C:\\Users\\MrPro\\source\\VS_RESPOS\\python\\Create Templates Dotnet\\NEW_TEMPLATE3"
 
-print("local is ", local_directory)
-current_working_directory = os.path.join(local_directory,"\\TEMPLATE_MANIPULATION_TEST")
-# save_project_directory = os.path.join(local_directory,"\\NEW_TEMPLATE3")
+current_working_directory = os.path.join(local_directory,"TEMPLATE_MANIPULATION_TEST")
+save_project_directory = os.path.join(local_directory,"NEW_TEMPLATE3")
 
 # create copy of the project to save in another location 
 os.makedirs(save_project_directory, exist_ok=True)
 if os.path.exists(save_project_directory):
     shutil.rmtree(save_project_directory)
-    print("deleting directory")
 
-print("creating ",current_working_directory)
 
 new_path = shutil.copytree(current_working_directory,save_project_directory)
-print("creating directory")
-print(new_path)
 
 def get_value_of_key(search_key):
     #later on, might need to fix the extension for other types
@@ -71,8 +64,6 @@ def file_to_string(file_path):
     add_file_and_text_to_dictionary(file_path, file_txt)
     
     
-
-
 res = []
 
 # iterate in directory 
