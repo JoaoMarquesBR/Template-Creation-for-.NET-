@@ -22,5 +22,6 @@ naming_conventions = {
     },
     'Domain': {
         'TEMPLATE_ENTITY_CLASS': "EndUser",
+        'TEMPLATE_REPOSITORY_INTERFACE_DECLARATION': "IEndUserRepository",
     },
 }
